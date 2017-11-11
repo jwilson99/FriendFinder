@@ -9,12 +9,19 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Sets up the express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+var staticPath = path.join(__dirname, "static");
+app.use(express.static(staticPath));
+// app.use(function(req, res) {
+//     res.sendFile(path.join(__dirname, + "static"));
+// });
 
 // ROUTER
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
+var apiRoutes = require("./app/routing/apiRoutes");
+var htmlRoutes = require("./app/routing/htmlRoutes");
+
+app.use(apiRoutes);
+app.use(htmlRoutes);
 
 // LISTENER
 app.listen(PORT, function() {
