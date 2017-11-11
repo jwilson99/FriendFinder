@@ -10,11 +10,7 @@ var PORT = process.env.PORT || 3000;
 
 // Sets up the express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
-var staticPath = path.join(__dirname, "static");
-app.use(express.static(staticPath));
-// app.use(function(req, res) {
-//     res.sendFile(path.join(__dirname, + "static"));
-// });
+app.use(bodyParser.json());
 
 // ROUTER
 var apiRoutes = require("./app/routing/apiRoutes");

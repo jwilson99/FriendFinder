@@ -15,7 +15,6 @@ var app = module.exports = express();
     app.post("/api/friends", function (req, res) {
 
         var newFriend = req.body;
-        console.log(newFriend);
 
         var friendScoreDifferences = [];
 
@@ -23,8 +22,6 @@ var app = module.exports = express();
         for (var i = 0; i < newFriend.answers.length; i++){
             newFriend.answers[i] = parseInt(newFriend.answers[i]);
         }
-
-        console.log(newFriend.answers);
 
 
         // friend data
@@ -47,14 +44,9 @@ var app = module.exports = express();
         };
 
         var minimumDifference = Array.min(friendScoreDifferences);
-        console.log(minimumDifference);
-        console.log(friendScoreDifferences.indexOf(minimumDifference));
 
         // best match determined by minimum answer difference
         var bestMatch = friendDatas[friendScoreDifferences.indexOf(minimumDifference)];
-        console.log(bestMatch);
-
-
 
         friendData.push(newFriend);
         res.send(bestMatch);
