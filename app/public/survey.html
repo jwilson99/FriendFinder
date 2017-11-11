@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+
+    <!-- Bootstrap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--jQuery CDN-->
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap: Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--<script type="text/javascript" src="friendLogic.js"></script>-->
+
+</head>
+
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Friend Finder</h1>
+        <hr>
+        <h3>Please, answer the following questions to the best of your ability.</h3>
+        <br>
+        <a href="/home">
+            <button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-home"></span> Go to
+                Home Page
+            </button>
+        </a>
+    </div>
+
+    <form id="surveyForm">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="name" class="form-control" id="name" placeholder="George P. Burdell" name="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="photo" class="col-sm-2 col-form-label">Photo link</label>
+            <div class="col-sm-10">
+                <input type="link" class="form-control" id="photo" placeholder="me.jpg" name="image">
+            </div>
+        </div>
+
+        <h4><b>Question 1:</b> I tend to prefer things quiet.</h4>[1-strongly disagree, 2-disagree, 3-neutral, 4-agree,
+        5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question1" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question1" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question1" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question1" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question1" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 2:</b> Arguments can be fun.</h4> [1-strongly disagree, 2-disagree, 3-neutral, 4-agree,
+        5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question2" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question2" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question2" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question2" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question2" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 3:</b> I tend to take things seriously.</h4> [1-strongly disagree, 2-disagree, 3-neutral,
+        4-agree, 5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question3" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question3" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question3" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question3" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question3" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 4:</b> I love to laugh.</h4> [1-strongly disagree, 2-disagree, 3-neutral, 4-agree, 5-strongly
+        agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question4" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question4" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question4" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question4" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question4" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 5:</b> I'm a real animal lover.</h4> [1-strongly disagree, 2-disagree, 3-neutral, 4-agree,
+        5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question5" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question5" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question5" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question5" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question5" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 6:</b> It's easier to work alone than on a team.</h4> [1-strongly disagree, 2-disagree,
+        3-neutral, 4-agree, 5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question6" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question6" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question6" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question6" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question6" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 7:</b> I tend to get wrapped up in the problems and emotions of others.</h4> [1-strongly
+        disagree, 2-disagree, 3-neutral, 4-agree, 5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question7" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question7" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question7" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question7" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question7" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 8:</b> I prefer outdoor activities of indoor activities.</h4> [1-strongly disagree, 2-disagree,
+        3-neutral, 4-agree, 5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question8" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question8" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question8" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question8" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question8" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 9:</b> Being the best isn't as important as having fun.</h4> [1-strongly disagree, 2-disagree,
+        3-neutral, 4-agree, 5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question9" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question9" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question9" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question9" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question9" value="5">
+                5
+            </label>
+        </div>
+
+        <h4><b>Question 10:</b> It is tedious to listen to someone else's stories.</h4> [1-strongly disagree,
+        2-disagree, 3-neutral, 4-agree, 5-strongly agree]
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question10" value="1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question10" value="2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question10" value="3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question10" value="4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="question10" value="5">
+                5
+            </label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-lg" id="submit" data-toggle="modal" data-target="#myModal">
+            Submit Answers
+        </button>
+        <br>
+        <br>
+    </form>
+
+<!--Modal-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <h4 class="modal-title">Your match!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some name here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+    $("#submit").on("click", function (event) {
+
+        event.preventDefault();
+
+        var q1 = document.querySelector('input[name="question1"]:checked').value;
+        var q2 = document.querySelector('input[name="question2"]:checked').value;
+        var q3 = document.querySelector('input[name="question3"]:checked').value;
+        var q4 = document.querySelector('input[name="question4"]:checked').value;
+        var q5 = document.querySelector('input[name="question5"]:checked').value;
+        var q6 = document.querySelector('input[name="question6"]:checked').value;
+        var q7 = document.querySelector('input[name="question7"]:checked').value;
+        var q8 = document.querySelector('input[name="question8"]:checked').value;
+        var q9 = document.querySelector('input[name="question9"]:checked').value;
+        var q10 = document.querySelector('input[name="question10"]:checked').value;
+
+        var answerArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+
+
+        // Here we grab the form elements
+        var newFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#photo").val().trim(),
+            answers: answerArray
+        };
+
+
+
+        var friendArray = [
+            {
+                name: "Michaelangelo",
+                photo: "https://www.toonzone.net/wp-content/uploads/2012/10/TMNT_SG_Mke_011_CGI.jpg",
+                answers: ["1","2","1","5","5","2","2","5","4","4"]
+            },
+            {
+                name: "Raphael",
+                photo: "https://vignette3.wikia.nocookie.net/tmnt/images/0/0a/Raph_ch_pu2.png/revision/latest?cb=20140503235225",
+                answers: ["2","5","4","2","5","5","3","4","1","5"]
+            },
+            {
+                name: "Donatello",
+                photo: "https://i0.wp.com/www.teenagemutantninjaturtles.com/wp-content/uploads/2012/10/Donatello.jpg",
+                answers: ["4","1","5","3","5","2","4","1","2","1"]
+            },
+            {
+                name: "Leonardo",
+                photo: "https://vignette.wikia.nocookie.net/tmnt/images/3/3c/Leo_ch_pu2.png/revision/latest/scale-to-width-down/350?cb=20140503235248",
+                answers: ["5","2","5","2","5","1","5","3","1","1"]
+            }
+        ];
+
+        compareFriend();
+
+        $.post("/api/friends", newFriend).done(
+            function (data) {
+
+                // If a table is available... tell user they are booked.
+
+                // Clear the form when submitting
+
+                document.getElementById("surveyForm").reset();
+
+            }).fail(function (err) {
+            console.log(err);
+        });
+
+        function compareFriend() {
+
+            // user data
+            var q1 = document.querySelector('input[name="question1"]:checked').value;
+            q1 = parseInt(q1);
+            var q2 = document.querySelector('input[name="question2"]:checked').value;
+            q2 = parseInt(q2);
+            var q3 = document.querySelector('input[name="question3"]:checked').value;
+            q3 = parseInt(q3);
+            var q4 = document.querySelector('input[name="question4"]:checked').value;
+            q4 = parseInt(q4);
+            var q5 = document.querySelector('input[name="question5"]:checked').value;
+            q5 = parseInt(q5);
+            var q6 = document.querySelector('input[name="question6"]:checked').value;
+            q6 = parseInt(q6);
+            var q7 = document.querySelector('input[name="question7"]:checked').value;
+            q7 = parseInt(q7);
+            var q8 = document.querySelector('input[name="question8"]:checked').value;
+            q8 = parseInt(q8);
+            var q9 = document.querySelector('input[name="question9"]:checked').value;
+            q9 = parseInt(q9);
+            var q10 = document.querySelector('input[name="question10"]:checked').value;
+            q10 = parseInt(q10);
+
+            var answerArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+
+
+            // friend data
+            var friendScoreDifferences = [];
+
+            for (var i = 0; i < friendArray.length; i++) {
+                var friendAnswers = friendArray[i].answers;
+                var totalDifference = 0;
+                for (var j = 0; j < friendAnswers.length; j++) {
+                    var friendAnswer = parseInt(friendAnswers[j]);
+                    totalDifference = totalDifference + Math.abs(friendAnswer - answerArray[j]);
+                }
+                friendScoreDifferences.push(totalDifference);
+
+            }
+
+            // function for find the minimum value within an array
+            Array.min = function (array) {
+                return Math.min.apply(Math, array);
+            };
+
+            var minimumDifference = Array.min(friendScoreDifferences);
+            console.log(minimumDifference);
+            console.log(friendScoreDifferences.indexOf(minimumDifference));
+
+            var bestMatch = friendArray[friendScoreDifferences.indexOf(minimumDifference)];
+            console.log(bestMatch);
+
+            var mymodal = $('#myModal');
+            mymodal.find('.modal-body').html("<h2>" + bestMatch.name + "</h2><br><img src=\'" + bestMatch.photo + "\'>");
+
+//            $(".modal-body").innerHTML = "<h2>" + bestMatch.name + "</h2><br><img src='" + bestMatch.photo + "'>";
+    }
+
+        $("#myModal").on("shown.bs.modal", function(event){
+            event.preventDefault();
+            $("#myModal").focus();
+        });
+    });
+</script>
+
+</body>
+</html>
