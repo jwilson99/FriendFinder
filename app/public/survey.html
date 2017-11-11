@@ -24,6 +24,7 @@
 </head>
 
 <body>
+<!--header-->
 <div class="container">
     <div class="jumbotron">
         <h1>Friend Finder</h1>
@@ -37,6 +38,7 @@
         </a>
     </div>
 
+    <!--survey form-->
     <form id="surveyForm">
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -388,7 +390,7 @@
         <br>
     </form>
 
-<!--Modal-->
+    <!--Modal-->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -411,10 +413,12 @@
 
 <script>
 
+    // on clicking the submit button...
     $("#submit").on("click", function (event) {
 
         event.preventDefault();
 
+        // grabs form data
         var q1 = document.querySelector('input[name="question1"]:checked').value;
         var q2 = document.querySelector('input[name="question2"]:checked').value;
         var q3 = document.querySelector('input[name="question3"]:checked').value;
@@ -429,7 +433,7 @@
         var answerArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
 
-        // Here we grab the form elements
+        // the form elements are stored in an object
         var newFriend = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
@@ -437,36 +441,36 @@
         };
 
 
-
+        // temporary dummy array, not dynamic, for friend data (cannot link to friends.js without error).
+        // it's worth noting that the friends.js file is updating though, and can be views on the api/friends page.
         var friendArray = [
             {
                 name: "Michaelangelo",
                 photo: "https://www.toonzone.net/wp-content/uploads/2012/10/TMNT_SG_Mke_011_CGI.jpg",
-                answers: ["1","2","1","5","5","2","2","5","4","4"]
+                answers: ["1", "2", "1", "5", "5", "2", "2", "5", "4", "4"]
             },
             {
                 name: "Raphael",
                 photo: "https://vignette3.wikia.nocookie.net/tmnt/images/0/0a/Raph_ch_pu2.png/revision/latest?cb=20140503235225",
-                answers: ["2","5","4","2","5","5","3","4","1","5"]
+                answers: ["2", "5", "4", "2", "5", "5", "3", "4", "1", "5"]
             },
             {
                 name: "Donatello",
                 photo: "https://i0.wp.com/www.teenagemutantninjaturtles.com/wp-content/uploads/2012/10/Donatello.jpg",
-                answers: ["4","1","5","3","5","2","4","1","2","1"]
+                answers: ["4", "1", "5", "3", "5", "2", "4", "1", "2", "1"]
             },
             {
                 name: "Leonardo",
                 photo: "https://vignette.wikia.nocookie.net/tmnt/images/3/3c/Leo_ch_pu2.png/revision/latest/scale-to-width-down/350?cb=20140503235248",
-                answers: ["5","2","5","2","5","1","5","3","1","1"]
+                answers: ["5", "2", "5", "2", "5", "1", "5", "3", "1", "1"]
             }
         ];
 
         compareFriend();
 
+        // posts to api friend data
         $.post("/api/friends", newFriend).done(
             function (data) {
-
-                // If a table is available... tell user they are booked.
 
                 // Clear the form when submitting
 
@@ -476,6 +480,7 @@
             console.log(err);
         });
 
+        // compares user survey data with existing survey data
         function compareFriend() {
 
             // user data
@@ -526,19 +531,22 @@
             console.log(minimumDifference);
             console.log(friendScoreDifferences.indexOf(minimumDifference));
 
+            // best match determined by minimum answer difference
             var bestMatch = friendArray[friendScoreDifferences.indexOf(minimumDifference)];
             console.log(bestMatch);
 
+            // modal updated to reflect friend match
             var mymodal = $('#myModal');
-            mymodal.find('.modal-body').html("<h2>" + bestMatch.name + "</h2><br><img src=\'" + bestMatch.photo + "\'>");
+            mymodal.find('.modal-body').html("<h2>" + bestMatch.name + "</h2><br><img width='500px' src=\'" + bestMatch.photo + "\'>");
 
-//            $(".modal-body").innerHTML = "<h2>" + bestMatch.name + "</h2><br><img src='" + bestMatch.photo + "'>";
-    }
+        }
 
-        $("#myModal").on("shown.bs.modal", function(event){
-            event.preventDefault();
-            $("#myModal").focus();
-        });
+
+    });
+    // modal focused when submit button is clicked
+    $("#myModal").on("shown.bs.modal", function (event) {
+        event.preventDefault();
+        $("#myModal").focus();
     });
 </script>
 

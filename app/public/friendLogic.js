@@ -1,3 +1,9 @@
+// This is where I would do the friend match calculation to determine the best match dynamically using the updated friends.js file
+// HOWEVER, I cannot access this file from the survey.html file. A script tag results in an error "Error: Uncaught SyntaxError: Unexpected token" within the js file, further inspection shows the error to be within "<!DOCTYPE html>".
+// Investigation on Stack Overflow brought about no leads to why this error keeps occuring regardless of which .js file I attempt to add a script tag for
+
+// SO DEAD FILE FOR NOW
+
 var friendData = require("../data/friends");
 
 $("#submit").on("click", function (event) {
